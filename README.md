@@ -28,7 +28,8 @@ Example use:
       virttype = "hvm"
     }
 
-    resource "aws_instance" "web" {
+    resource "aws_instance" "core" {
+      instances = 5
       ami = "${module.ami.ami_id}"
       instance_type = "m3.8xlarge"
     }
