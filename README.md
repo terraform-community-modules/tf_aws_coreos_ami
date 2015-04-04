@@ -22,7 +22,7 @@ and then looks up the one you want given the input variables.
 ## Example use
 
     module "ami" {
-      source = "github.com/bobtfish/terraform-coreos-ami"
+      source = "github.com/terraform-community-modules/tf_aws_coreos_ami"
       region = "eu-central-1"
       channel = "stable"
       virttype = "hvm"
