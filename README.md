@@ -1,7 +1,7 @@
 tf_aws_coreos_ami
 =================
 
-Terraform module to get the current set of publicly available coreos AMIs.
+Terraform module to get the current set of publicly available [CoreOS](https://coreos.com/) [AMIs](https://coreos.com/docs/running-coreos/cloud-providers/ec2/).
 
 This module grabs all of the AMIs listed at:
 
