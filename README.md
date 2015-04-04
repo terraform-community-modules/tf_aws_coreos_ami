@@ -1,5 +1,5 @@
-terraform-coreos-ami
-====================
+tf_aws_coreos_ami
+=================
 
 Terraform module to get the current set of publicly available coreos AMIs.
 
@@ -9,17 +9,17 @@ This module grabs all of the AMIs listed at:
 
 and then looks up the one you want given the input variables.
 
-Input variables:
+## Input variables
 
   * region - E.g. eu-central-1
   * channel - stable/alpha/beta 
   * virttype - hvm/pv
 
-Outputs:
+## Outputs
 
   * ami_id
 
-Example use:
+## Example use
 
     module "ami" {
       source = "github.com/bobtfish/terraform-coreos-ami"
