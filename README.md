@@ -34,3 +34,22 @@ and then looks up the one you want given the input variables.
       instance_type = "m3.8xlarge"
     }
 
+## Getting an AMI by instance_type
+
+Often you don't want to care if you need an hvm or pv instance.
+
+In these cases, you can instead use:
+
+    module "ami" {
+      source = "github.com/terraform-community-modules/tf_aws_coreos_ami/instance_type"
+      region = "eu-central-1"
+      channel = "stable"
+      instance_type = "m3.large"
+    }
+
+Note this prefers hvm instances where available.
+
+# LICENSE
+
+Apache2 - See the included LICENSE file for more information.
+
