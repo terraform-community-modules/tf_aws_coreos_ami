@@ -34,6 +34,17 @@ and then looks up the one you want given the input variables.
       instance_type = "m3.8xlarge"
     }
 
+## Note
+
+This module does not bundle _variables.tf.json_, and so you need to run make in this directory to pull
+that file down.
+
+You can do this with a few lines like this in your top level Makefile:
+
+    .terraform:
+            terraform get
+            for i in $$(ls .terraform/modules/*/Makefile); do i=$$(dirname $$i); make -C $$i; done
+
 ## Getting an AMI by instance_type
 
 Often you don't want to care if you need an hvm or pv instance.
