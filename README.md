@@ -41,7 +41,7 @@ that file down.
 
 You can do this with a few lines like this in your top level Makefile:
 
-    .terraform:
+    .terraform/modules:
             terraform get
             for i in $$(ls .terraform/modules/*/Makefile); do i=$$(dirname $$i); make -C $$i; done
 
