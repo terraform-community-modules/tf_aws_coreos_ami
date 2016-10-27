@@ -36,7 +36,7 @@ and then looks up the one you want given the input variables.
 
 ## Note
 
-This module does not bundle _variables.tf.json_, and so you need to run make in this directory to pull
+This module has bundled version of _variables.tf.json_, but if you need to update it you can run `make` in this directory to pull
 that file down.
 
 You can do this with a few lines like this in your top level Makefile:
@@ -44,6 +44,8 @@ You can do this with a few lines like this in your top level Makefile:
     .terraform/modules:
             terraform get
             for i in $$(ls .terraform/modules/*/Makefile); do i=$$(dirname $$i); make -C $$i; done
+
+Consider open a pull-request with updated _variables.tf.json_.
 
 ## Getting an AMI by instance_type
 
