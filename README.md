@@ -1,6 +1,49 @@
 tf_aws_coreos_ami
 =================
 
+Starting from Terraform version 0.7 this module is redundant, because Terraform has [aws_ami](https://www.terraform.io/docs/providers/aws/d/ami.html) data-structure which allows to get ID of specific CoreOS AMI.
+
+Here is the code:
+
+```
+variable "channel" {
+  default = "stable"
+}
+
+variable "virtualization_type" {
+  default = "hvm"
+}
+
+data "aws_ami" "coreos" {
+  most_recent = true
+
+  owners = ["595879546273"]
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name = "virtualization-type"
+    values = ["${var.virtualization_type}"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["CoreOS-${var.channel}-*"]
+  }
+}
+
+output "ami_id" {
+  value = "${data.aws_ami.coreos.image_id}"
+}
+```
+
+---
+
+If you are using Terraform older than version 0.7 keep reading and using this module.
+
 Terraform module to get the current set of publicly available [CoreOS](https://coreos.com/) [AMIs](https://coreos.com/docs/running-coreos/cloud-providers/ec2/).
 
 This module grabs all of the AMIs listed at:
