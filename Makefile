@@ -1,6 +1,6 @@
 .PHONY: all
 
-all: variables.tf.json
+all: clean variables.tf.json
 
 variables.tf.json:
 	ruby getvariables.rb > variables.tf.json
